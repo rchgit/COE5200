@@ -1,0 +1,81 @@
+% Chapter 1
+
+\chapter{INTRODUCTION} % Main chapter title
+
+\label{Chapter1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+\lhead{Chapter 1. \emph{Introduction}} % This is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+
+\section{Background of the Study}
+The advent of ultra high resolution television screens and monitors have been 
+Common video sources do not use the full capability of most high-resolution televisions of today
+Super-resolution is the process of rendering or recovering a larger image or video given some low-resolution source \citep{Dong2014}
+Super-resolution finds its applications in diverse fields of study. Examples include video surveillance, in \cite{Caner2003} and \cite{Zhang2010},  medical imaging [3,4], and satellite imaging [5–7], have gained significant interests in consumer electronics, academia, and industries (temporary citation)  \citep{Cheng2013}
+Image super-resolution methods that use a set of LR images construct an HR image by exploring the spatial correlations in that set \citep{Cheng2013}.
+\cite{Ishizaka2013} noted that "high quality SR that can be used for enterprise systems such like broadcasting and video surveillance is very compute intensive. Realtimeness is recognized as important threshold to use SR for a variety of systems. However, for example, it is several times slower than realtime to convert SD to HD by using a commodity server."
+
+Video super-resolution is a difficult task, especially when given severe time constraints (near real-time)
+Today's state-of-the-art video super-resolution methods run on a GPU (high cost, high wattage)
+Current solutions also have unstable frame rates.
+FPGAs are known to have high performance-per-watt ratios.
+
+%----------------------------------------------------------------------------------------
+
+\section{Statement of the Problem}
+
+We are then confronted by the problem of finding a video super-resolution system that uses
+a fast algorithm to generate high-quality hi-resolution videos from a low-resolution source 
+while maintaining a relatively small power footprint.
+
+
+%----------------------------------------------------------------------------------------
+
+\section{Objectives of the Study}
+
+\subsection{General Objective}
+
+This study aims to come up with a new video super-resolution algorithm and implement this for use on an FPGA (field programmable gate array).
+
+
+\subsection{Specific Objectives}
+
+Specifically, the study aims on improving on the state-of-the-art video super-resolution algorithm in terms of PSNR (peak signal-to-noise ratio) and processing time
+Determine the FPGA best suited for the purpose of video super-resolution, considering processing resources and power consumption
+Profile the video super-resolution algorithm to determine performance bottlenecks
+Exploit parallelizable steps in the algorithm to further enhance suitability on an FPGA
+
+
+%----------------------------------------------------------------------------------------
+
+\section{Scope and Limitations of the Study}
+
+\begin{itemize}
+\item Near real-time 
+\end{itemize}
+
+Since previous studies (cite something) have shown that clear upscaling is practical only at a factor of 4, 
+it has been decided that this study should concern itself with x4 upscaling only.
+
+
+%\subsection{Using US Letter Paper}
+%
+%The paper size used in the template is A4, which is a common -- if not standard -- size in Europe. If you are using this thesis template elsewhere and particularly in the United States, then you may have to change the A4 paper size to the US Letter size. Unfortunately, this is not as simple as replacing instances of `\texttt{a4paper}' with `\texttt{letterpaper}'.
+%
+%This is because the final PDF file is created directly from the \LaTeX{} source using a program called `\texttt{pdfTeX}' and in certain conditions, paper size commands are ignored and all documents are created with the paper size set to the size stated in the configuration file for pdfTeX (called `\texttt{pdftex.cfg}').
+%
+%What needs to be done is to change the paper size in the configuration file for \texttt{pdfTeX} to reflect the letter size. There is an excellent tutorial on how to do this here: \\
+%\href{http://www.physics.wm.edu/~norman/latexhints/pdf_papersize.html}{\texttt{http://www.physics.wm.edu/$\sim$norman/latexhints/pdf\_papersize.html}}
+%
+%It may be sufficient just to replace the dimensions of the A4 paper size with the US Letter size in the \texttt{pdftex.cfg} file. Due to the differences in the paper size, the resulting margins may be different to what you like or require (as it is common for Institutions to dictate certain margin sizes). If this is the case, then the margin sizes can be tweaked by opening up the \texttt{Thesis.cls} file and searching for the line beginning with, `$\backslash$\texttt{setmarginsrb}' (not very far down from the top), there you will see the margins specified. Simply change those values to what you need (or what looks good) and save. Now your document should be set up for US Letter paper size with suitable margins.
+
+%\subsection{References}
+
+%The `\texttt{natbib}' package is used to format the bibliography and inserts references such as this one \citep{Reference3}. The options used in the `\texttt{Thesis.tex}' file mean that the references are listed in numerical order as they appear in the text. Multiple references are rearranged in numerical order (e.g. \citep{Reference2, Reference1}) and multiple, sequential references become reformatted to a reference range (e.g. \citep{Reference2, Reference1, Reference3}). This is done automatically for you. To see how you use references, have a look at the `\texttt{Chapter1.tex}' source file. Many reference managers allow you to simply drag the reference into the document as you type.
+%
+%Scientific references should come \emph{before} the punctuation mark if there is one (such as a comma or period). The same goes for footnotes\footnote{Such as this footnote, here down at the bottom of the page.}. You can change this but the most important thing is to keep the convention consistent throughout the thesis. Footnotes themselves should be full, descriptive sentences (beginning with a capital letter and ending with a full stop).
+%
+%To see how \LaTeX{} typesets the bibliography, have a look at the very end of this document (or just click on the reference number links).
+
+

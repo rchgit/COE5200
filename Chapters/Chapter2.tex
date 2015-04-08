@@ -1,0 +1,123 @@
+% Chapter 2
+
+\chapter{REVIEW OF RELATED LITERATURE} % Main chapter title
+
+\label{Chapter2} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+\lhead{Chapter 2. \emph{Review of Related Literature}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section{Image Super-resolution}
+
+Still-image super-resolution (SR) is the reconstruction of a high-resolution (HR) image given one, or a set of, low-resolution (HR) images. 
+The first known work on this field is that of \cite{tsai1984multiframe}. 
+Traditionally, super-resolution of images is performed with several observed LR images. This is done in order to remove artifacts introduced by the low-resolution camera sensor \citep{Yang2010a}. 
+There is another approach which involves only a single observation or image.
+The limited set of data severely limits the quality obtainable, thus 
+the SR problem becomes ill-posed \citep{Yang2010a}.
+
+Super-resolution is necessary in the following fields of interest \citep{Yang2010a}:
+\begin{itemize}
+	\item Surveillance video: 
+	\item Satellite imaging:
+	\item Medical imaging:
+	\item Video upscaling:	
+\end{itemize}
+
+To the present day, super-resolution remains an active area of research. 
+The following sections present various approaches to SR that rely on several different models.
+
+%---------------
+\subsection{Image Observation Model}
+
+\citep{Yang2010a}
+
+\subsection{Frequency Domain}
+Hello
+\citep{Yang2010a}
+
+\subsection{Interpolation-restoration}
+Hello
+\citep{Yang2010}
+
+\subsection{Statistical Methods}
+Hello
+\citep{Yang2010a}
+
+\subsection{Set-theoretic Methods}
+Hello
+\citep{Yang2010a}
+
+
+\subsection{Methods based on sparsity}
+Hello
+
+\subsection{Dictionary learning methods}
+Hello
+
+\subsection{Computational Intelligence Methods}
+Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+
+\section{Challenges in Image SR}
+Researchers still struggle with the following challenges, despite years of research.
+\begin{itemize}
+	\item Image Registration
+	\item Computation Efficiency
+	\item 
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2
+%----------------------------------------------------------------------------------------
+
+\section{Video super-resolution}
+
+Video super-resolution is the application of super-resolution to moving pictures.
+It can generally be divided into two categories: incremental and simultaneous \citep{Su2011}. The former category is faster but less visually consistent to the human eye.
+
+
+\subsection{Mathematical Methods}
+
+Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
+
+%-----------------------------------
+%	SUBSECTION 2
+%-----------------------------------
+
+\subsection{Computational Intelligence Methods}
+Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+
+\section{Review of High Performance Computing Platforms}
+\cite{Yang2010a} suggest that high-performance hardware does matter in tackling super-resolution problems. In (insert citation here), something. 
+Modern CPUs (central processing units) of computers combine high-frequency processors with a degree of parallelism to add more processing power to algorithms.
+Even so, the CPU is not enough to handle tasks such as SR in real-time.
+There are several steps in the SR process that may be implemented as parallel tasks.
+Following are the discussions on GPUs, manycore coprocessors, and FPGAs, three parallel platforms commonly in use today.
+
+\section{Graphics Processing Units}
+
+GPUs (Graphics Processing Units) have been favored in recent years for this task, as it offers high amounts of parallelism (due to its multiple cores) and compatibility with existing computer systems and programming paradigms.
+\cite{Wu2011} claims 6x speedup against the same algorithm implemented on a CPU. 
+\cite{Shen2014} used a real-time learning-based SR algorithm based on error feedback. 
+
+\section{Manycore coprocessors}
+This class of parallel processors are based off CPU architectures but have more cores than the traditional CPU and are meant to run at a lower frequency. 
+A host CPU passes the appropriate parallel instructions to the manycore coprocessor and subsequently fetches the results of the computation.
+Manycore processors offer more programmability than GPUs simply by the fact that they share the same architecture as the host CPU \citep{Ishizaka2013}.
+
+\section{Field Programmable Gate Arrays (FPGAs)}
+
+FPGAs (Field Programmable Gate Arrays), however, can exploit fine-grained parallelism while keeping the power footprint small. \cite{Angelopoulou2009} created a real-time video SR system on an FPGA that is robust against noise. It uses the iterative back projection algorithm.
+
+\subsection{Design Strategies}
+\cite{Sirowy2008} detailed the reasons why an FPGA offers high speedups over instruction-based processors such as CPU, manycore, and GPU. 
+Among these are the removal of an instruction fetch step, 
+
+\subsection{Use in other high performance-per-watt applications}
+Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+
+\subsection{As video processors}
+Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
