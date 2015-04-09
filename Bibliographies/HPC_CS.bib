@@ -1,0 +1,73 @@
+@article{Wu2011,
+abstract = {this paper presents a parallel algorithm designed for Super-resolution Image Reconstruction based on Compressive sensing in the ATI Stream platform. In the accelerating process, we select part of the serial program as the objects to be sped up according to the execution time of each stage, set appropriate parallel granularity to make full use of GPU's computational horsepower, and make a rational use of different kinds of memory space in GPU. At last, the result of the parallel algorithm is shown and analyzed. Compared to the serial algorithm, parallel algorithm has significantly accelerated results.},
+author = {Wu, Xifei and Xiang, Hui and Lu, Peng},
+doi = {10.1109/DMDCM.2011.10},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/2011 Workshop on Digital Media and Digital Content Management/2011\_A GPU Accelerated Algorithm for Compressive Sensing Based Image Super-Resolution.pdf:pdf},
+isbn = {978-0-7695-4413-7},
+journal = {2011 Workshop on Digital Media and Digital Content Management},
+keywords = {Compressive Sensing,GPU,Image Super-resolution,parallel computing},
+number = {60633030},
+pages = {198--202},
+title = {{A GPU Accelerated Algorithm for Compressive Sensing Based Image Super-Resolution}},
+year = {2011}
+}
+@article{Sirowy2008,
+abstract = {Where do all the cycles go when microprocessor applications are implemented spatially as circuits on an FPGA? It is well established that certain sequential applications can be captured spatially and achieve breathtaking speedups when run on an FPGA, but why? Despite running at clock speeds orders of magnitude slower compared to their embedded processor equivalents, FPGA applications can "lose" enough cycles to create exceptionally fast spatially-oriented circuits. We profile and analyze three canonical applications amenable to FPGA speedup to quantify exactly where FPGAs gain that speedup. We compare the FPGA implementations to several idealized software platforms. The idealized software platforms give insight as to how FPGA implementations attain such dramatic speedups. We quantify the effects of parallelizing and pipelining instructions, streaming data, and eliminating the instruction fetch, showing exactly where the cycles are lost in an FPGA implementation. We also show how the memory interface to the FPGA will affect the performance. Our results show that custom memory interfaces are the most effective way at enabling much greater performance on the FPGA, and that memory interfaces traditional software use become a bottleneck when the FPGA uses the same interface. The results, though not surprising, provide a clearer and more intuitive understanding of the performance FPGAs can achieve, offering researchers and engineers alike a new angle to attack the task of parallelizing applications.},
+author = {Sirowy, Scott and Forin, Alessandro},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/Microsoft Research/2008\_Where's the Beef Why FPGAs Are So Fast.pdf:pdf},
+journal = {Microsoft Research},
+number = {September},
+title = {{Where's the Beef ? Why FPGAs Are So Fast}},
+year = {2008}
+}
+@article{Rabah2014,
+author = {Rabah, Hassan and Member, Senior and Amira, Abbes and Member, Senior and Mohanty, Basant Kumar and Member, Senior and Almaadeed, Somaya and Member, Senior},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/Unknown/2014\_FPGA Implementation of Orthogonal Matching Pursuit for Compressive Sensing Reconstruction.pdf:pdf},
+pages = {1--12},
+title = {{FPGA Implementation of Orthogonal Matching Pursuit for Compressive Sensing Reconstruction}},
+year = {2014}
+}
+@inproceedings{Stanislaus2013,
+abstract = {Compressive sensing (CS) is a novel technology which allows sampling of sparse signals under sub-Nyquist rate and reconstructing the image using computational intensive algorithms. Reconstruction algorithms are complex and software implementation of these algorithms is extremely slow and power consuming. In this paper, a low complexity architecture for the reconstruction of compressively sampled signals is proposed. The algorithm used here is Orthogonal Matching Pursuit (OMP) which can be divided into two major processes: optimization problem and least square problem. The most complex part of OMP is to solve the least square problem and a scalable Q-R decomposition (QRD) core is implemented to perform this. A novel thresholding method is used to reduce the processing time for the optimization problem by at least 25 \%. The proposed architecture reconstructs a 256-length signal with maximum sparsity of 8 and using 64 measurements. Implementation on Xilinx Virtex-5 FPGA runs at two clock rates (85 MHz and 69 MHz), and occupies an area of 15\% slices and 80\% DSP cores. The total reconstruction for a 128-length signal takes 7.13 $\mu$s which is 3.4 times faster than the state-of-art-implementation.},
+author = {Stanislaus, Jerome L V M and Mohsenin, Tinoosh},
+booktitle = {2013 International Conference on Computing, Networking and Communications, ICNC 2013},
+doi = {10.1109/ICCNC.2013.6504167},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/2013 International Conference on Computing, Networking and Communications, ICNC 2013/2013\_Low-complexity FPGA implementation of compressive sensing reconstruction.pdf:pdf},
+isbn = {9781467352888},
+pages = {671--675},
+title = {{Low-complexity FPGA implementation of compressive sensing reconstruction}},
+year = {2013}
+}
+@article{Orchard2012,
+abstract = {Compressive sensing has allowed for reconstruction of missing pixels in incomplete images with higher accuracy than was previously possible. Moreover, video data or sequences of images contain even more correlation, leading to a much sparser representation as demonstrated repeatedly in numerous digital video formats and international standards. Compressive sensing has inspired the design of a number of imagers which take advantage of the need to only subsample a scene, which reduces power consumption by requiring acquisition and transmission of fewer samples. In this paper, we show how missing pixels in a video sequence can be estimated using compressive sensing techniques. We present a real time implementation of our algorithm and show its applica- tion to an asynchronous time-based image sensor (ATIS) from the Austrian Institute of Technology. The ATIS only provides pixel in- tensity data when and where a change in pixel intensity is detected, however, noise randomly causes intensity changes to be falsely detected, thereby providing random samples of static regions of the scene. Unlike other compressive sensing imagers, which typically have pseudo-random sampling designed in at extra effort, the ATIS used here provides random samples as a side effect of circuit noise. Here, we describe and analyze a field-programmable gate array implementation of a matching pursuit (MP) algorithm for compressive sensing reconstruction capable of reconstructing over 1.9 million 8 8 pixel regions per second with a sparsity of 11 using a basis dictionary containing 64 elements. In our application to ATIS we achieve throughput of 28 frames per second at a resolution of 304 240 pixels with reconstruction accuracy comparable to that of state of the art algorithms evaluated offline.},
+author = {Orchard, Garrick and Zhang, Jie and Suo, Yuanming and Dao, Minh and Nguyen, Dzung T and Chin, Sang and Posch, Christoph and Tran, Trac D and Etienne-Cummings, Ralph},
+doi = {10.1109/JETCAS.2012.2214614},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/IEEE Journal on Emerging and Selected Topics in Circuits and Systems/2012\_Real time compressive sensing video reconstruction in hardware.pdf:pdf},
+isbn = {2156-3357 VO - 2},
+issn = {21563357},
+journal = {IEEE Journal on Emerging and Selected Topics in Circuits and Systems},
+keywords = {Asynchronous,FPGA-based real-time video processing,compressive imaging,field-programmable gate array (FPGA) and applicati},
+number = {3},
+pages = {604--615},
+title = {{Real time compressive sensing video reconstruction in hardware}},
+volume = {2},
+year = {2012}
+}
+@article{Wang2010,
+abstract = {This paper examines the implementation considerations of Compressive Sampling (CS) in Field Programmable Gate Array (FPGA) and proposes computation-free linear projection implementation for CS encoding in imaging applications. A simplified sensing matrix is implemented to eliminate the multiplication and summation processes in the sensing stage. This sensing paradigm does not require all pixels in an image to be fully captured before being projected into measurements. This is in contrast with the case when Gaussian or Noiselet sensing matrix is applied. Though the recovered image obtained by this work is 2.64dB lower in PSNR than that of the optimal Gaussian matrix, the problem of Saturation noise caused by significantly increased dynamic range of the measurements compared with the original pixel value could be avoided in the practical applications. This compressive sampling scheme is implemented in FPGA and is interfaced with a CMOS imager for experimental validation.},
+author = {Wang, Yan Wang Yan and Bermak, Amine and Boussaid, Farid},
+doi = {10.1109/ASQED.2010.5548167},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/Quality Electronic Design (ASQED), 2010 2nd Asia Symposium on/2010\_FPGA implementation of compressive sampling for sensor network applications.pdf:pdf},
+isbn = {978-1-4244-7809-5},
+journal = {Quality Electronic Design (ASQED), 2010 2nd Asia Symposium on},
+title = {{FPGA implementation of compressive sampling for sensor network applications}},
+year = {2010}
+}
+@article{Angeles2013,
+author = {Angeles, Los},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/Unknown/2013\_A SINGLE-PRECISION COMPRESSIVE SENSING SIGNAL RECONSTRUCTION ENGINE ON FPGAS Fengbo Ren , Richard Dorrace , Wenyao Xu , Dejan Marko.pdf:pdf},
+isbn = {9781479900046},
+pages = {0--3},
+title = {{A SINGLE-PRECISION COMPRESSIVE SENSING SIGNAL RECONSTRUCTION ENGINE ON FPGAS Fengbo Ren , Richard Dorrace , Wenyao Xu , Dejan Markovi \'{c} Department of Electrical Engineering University of California , Los Angeles}},
+year = {2013}
+}

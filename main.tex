@@ -25,10 +25,13 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[11pt, oneside]{Thesis} % The default font size and one-sided printing (no margin offsets)
-
+\documentclass[12pt, oneside]{Thesis} % The default font size and one-sided printing (no margin offsets)
+%\usepackage[margin=1in]{geometry}
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
-
+\usepackage{times}
+\usepackage{graphicx} % Required for including pictures
+\usepackage{amsmath}
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
 %\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
 \usepackage[natbibapa,unnumberedbib]{apacite} 
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
@@ -72,13 +75,13 @@
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
 \emph{Author:}\\
-\href{http://www.johnsmith.com}{\authornames} % Author name - remove the \href bracket to remove the link
+{\authornames} % Author name - remove the \href bracket to remove the link
 \end{flushleft}
 \end{minipage}
 \begin{minipage}{0.4\textwidth}
 \begin{flushright} \large
-\emph{Supervisor:} \\
-\href{http://www.jamessmith.com}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\emph{Adviser:} \\
+{\supname} % Supervisor name - remove the \href bracket to remove the link  
 \end{flushright}
 \end{minipage}\\[3cm]
  
@@ -290,6 +293,6 @@ $\omega$ & angular frequency & rads$^{-1}$ \\
 
 %\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
 \bibliographystyle{apacite}
-\bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+\bibliography{Bibliographies/SR_image,Bibliographies/HPC_CS,Bibliographies/SR_video,Bibliographies/HPC_SR,Bibliographies/TV_Standards,Bibliographies/Img_Proc,Bibliographies/Bibliography,Bibliographies/FPGA_ImgProc,Bibliographies/FPGA} % The references (bibliography) information are stored in the file named "Bibliography.bib"
 
 \end{document}  
