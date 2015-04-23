@@ -9,29 +9,31 @@
 %----------------------------------------------------------------------------------------
 
 \section{Background of the Study}
-The search for ever higher screen resolutions led to the advent of ultra high definition television screens and monitors. However, to date, 
-Common video sources do not use the full capability of most high-resolution televisions of today
-Super-resolution is the process of rendering or recovering a larger image or video given some low-resolution source \citep{Dong2014}.
-Super-resolution finds its applications in diverse fields of study. Examples include video surveillance, in \cite{Caner2003} and \cite{Zhang2010},  medical imaging [3,4], and satellite imaging [5–7], have gained significant interests in consumer electronics, academia, and industries (temporary citation)  \citep{Cheng2013}
-Image super-resolution methods that use a set of LR images construct an HR image by exploring the spatial correlations in that set \citep{Cheng2013}.
-\cite{Ishizaka2013} noted that "high quality SR that can be used for enterprise systems such like broadcasting and video surveillance is very compute intensive. Realtimeness is recognized as important threshold to use SR for a variety of systems. However, for example, it is several times slower than realtime to convert SD to HD by using a commodity server."
+The search for ever higher screen resolutions led to the advent of ultra high definition television screens and monitors. However, to date, common video sources do not use the full capability of most high-resolution televisions of today.
 
-Video super-resolution is a difficult task, especially when given severe time constraints (near real-time). 
-Today's state-of-the-art video super-resolution methods run on a GPU (high cost, high wattage).
-Current solutions also have unstable frame rates \citep{Wu2011}.
-FPGAs are known to have high performance-per-watt ratios.
+Super-resolution is the process of rendering or recovering a larger image or video given some low-resolution source \citep{Dong2014}.
+Super-resolution finds its applications in diverse fields of study. Examples include video surveillance, in \cite{Caner2003} and \cite{Zhang2010},  medical imaging in \cite{Malczewski2008}, and satellite imaging (cite here).
+Multi-frame image super-resolution methods use a set of LR images to construct an HR image by exploring the spatial correlations in that set \citep{Cheng2013}.
+This kind of SR is applicable in laboratory settings.
+In other cases, single frame SR is more appropriate. 
+These methods try to extract information from only one HR image, making the task much more difficult than multi-frame.
+
+
 
 %----------------------------------------------------------------------------------------
 
 \section{Statement of the Problem}
 
-We are then confronted by the problem of finding a video super-resolution system that uses
-a fast algorithm to generate high-quality hi-resolution videos from a low-resolution source 
-while maintaining a relatively small power footprint.
+In many applications such as super-HD (4K) TV, super resolution has to be performed in real time \citep{Shen2014}. However, as noted by \cite{Ishizaka2013} "it is several times slower than real-time" to upscale videos using commodity hardware.
+Besides, power consumption is also an important issue. 
+To integrate super-resolution processing into existing systems, there must not be a drastic increase in power footprint. 
+A number of state-of-the-art methods of SR use GPUs and manycore CPUs, which offer a degree of performance at the expense of electric power.
+Current solutions also have unstable frame rates \citep{Wu2011}.
+A class of integrated circuits known as FPGAs are demonstrate to have high performance-per-watt ratios.
 
+We are then confronted by the problem of finding a video super-resolution system that uses a fast algorithm to generate high-quality hi-resolution videos from a low-resolution source while maintaining a relatively small power footprint.
 
 %----------------------------------------------------------------------------------------
-
 \section{Objectives of the Study}
 
 \subsection{General Objective}
@@ -41,11 +43,14 @@ This study aims to come up with a new video super-resolution algorithm and imple
 
 \subsection{Specific Objectives}
 
-Specifically, the study aims on improving on the state-of-the-art video super-resolution algorithm in terms of PSNR (peak signal-to-noise ratio) and processing time
-Determine the FPGA best suited for the purpose of video super-resolution, considering processing resources and power consumption
-Profile the video super-resolution algorithm to determine performance bottlenecks
-Exploit parallelizable steps in the algorithm to further enhance suitability on an FPGA
+Specifically, the study aims to tackle the following goals:
 
+\begin{itemize}
+	\item Improve on the state-of-the-art video super-resolution algorithm in terms of PSNR (peak signal-to-noise ratio) and time complexity. 
+	\item Determine the FPGA best suited for the purpose of video super-resolution, considering processing resources and power consumption
+	\item Profile the video super-resolution algorithm to determine performance bottlenecks
+	\item Exploit parallelizable steps in the algorithm to further enhance suitability on an FPGA
+\end{itemize}
 
 %----------------------------------------------------------------------------------------
 

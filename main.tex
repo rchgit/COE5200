@@ -25,15 +25,14 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[12pt, oneside]{Thesis} % The default font size and one-sided printing (no margin offsets)
+\documentclass[12pt,oneside,letterpaper]{Thesis} % The default font size and one-sided printing (no margin offsets)
 %\usepackage[margin=1in]{geometry}
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
 \usepackage{times}
 \usepackage{graphicx} % Required for including pictures
-\usepackage{amsmath}
 \usepackage[protrusion=true,expansion=true]{microtype} % Better typography
 %\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
-\usepackage[natbibapa,unnumberedbib]{apacite} 
+\usepackage[natbibapa,unnumberedbib]{apacite} % APA Reference Style
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
 
@@ -41,7 +40,7 @@
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 
-\setstretch{1.3} % Line spacing of 1.3
+\setstretch{1.5} % Line spacing of 1.3
 
 % Define the page headers using the FancyHdr package and set up for one-sided printing
 \fancyhead{} % Clears all page headers and footers
@@ -65,9 +64,15 @@
 \begin{titlepage}
 \begin{center}
 
-\textsc{\LARGE \university}\\[1.5cm] % University name
-\textsc{\Large Masteral Thesis Proposal}\\[0.5cm] % Thesis type
-
+%\textsc{\LARGE \university}\\[1.5cm] % University name
+%\textsc{\Large Masteral Thesis Proposal}\\[0.5cm] % Thesis type
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{Figures/dlsulogo.png}
+%	\rule{35em}{0.2pt}
+%	\caption[]{Conceptual Framework of the Study.}
+	\label{fig:dlsulogo}
+\end{figure}
 \HRule \\[0.4cm] % Horizontal line
 {\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
 \HRule \\[1.5cm] % Horizontal line
@@ -85,7 +90,7 @@
 \end{flushright}
 \end{minipage}\\[3cm]
  
-\large \textit{A thesis submitted in fulfilment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+\large \textit{In partial fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
 \textit{in}\\[0.4cm]
 \deptname\\[2cm] % Research group name and department name
  
@@ -165,7 +170,7 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 
 \acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
-The acknowledgments and the people to thank go here, don't forget to include your project advisor\ldots
+I thank sir Carlo Ochotorena for his valuable insights into the super-resolution problem. None of this would be possible without his help\ldots
 }
 \clearpage % Start a new page
 
@@ -195,7 +200,14 @@ The acknowledgments and the people to thank go here, don't forget to include you
 \lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
 \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 {
-\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
+%\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
+\textbf{GPU} & \textbf{G}raphics \textbf{P}rocessing \textbf{U}nit \\
+\textbf{CPU} & \textbf{C}entral \textbf{P}rocessing \textbf{U}nit \\
+\textbf{SR} & \textbf{S}uper-\textbf{R}esolution \\
+\textbf{PSNR} & \textbf{P}eak \textbf{S}ignal-to-\textbf{N}oise \textbf{Ratio} \\
+\textbf{SSIM} & \textbf{S}tructural \textbf{S}imilarity \textbf{I}ndex \textbf{M}easure \\
+\textbf{FPGA} & \textbf{F}ield \textbf{P}rogrammable \textbf{G}ate \textbf{A}rray \\
+
 %\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
 }
 
@@ -203,47 +215,47 @@ The acknowledgments and the people to thank go here, don't forget to include you
 %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
 %----------------------------------------------------------------------------------------
 
-\clearpage % Start a new page
-
-\lhead{\emph{Physical Constants}} % Set the left side page header to "Physical Constants"
-
-\listofconstants{lrcl} % Include a list of Physical Constants (a four column table)
-{
-Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
-% Constant Name & Symbol & = & Constant Value (with units) \\
-}
+%\clearpage % Start a new page
+%
+%\lhead{\emph{Physical Constants}} % Set the left side page header to "Physical Constants"
+%
+%\listofconstants{lrcl} % Include a list of Physical Constants (a four column table)
+%{
+%Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
+%% Constant Name & Symbol & = & Constant Value (with units) \\
+%}
 
 %----------------------------------------------------------------------------------------
 %	SYMBOLS
 %----------------------------------------------------------------------------------------
 
-\clearpage % Start a new page
-
-\lhead{\emph{Symbols}} % Set the left side page header to "Symbols"
-
-\listofnomenclature{lll} % Include a list of Symbols (a three column table)
-{
-$a$ & distance & m \\
-$P$ & power & W (Js$^{-1}$) \\
-% Symbol & Name & Unit \\
-
-& & \\ % Gap to separate the Roman symbols from the Greek
-
-$\omega$ & angular frequency & rads$^{-1}$ \\
-% Symbol & Name & Unit \\
-}
+%\clearpage % Start a new page
+%
+%\lhead{\emph{Symbols}} % Set the left side page header to "Symbols"
+%
+%\listofnomenclature{lll} % Include a list of Symbols (a three column table)
+%{
+%$a$ & distance & m \\
+%$P$ & power & W (Js$^{-1}$) \\
+%% Symbol & Name & Unit \\
+%
+%& & \\ % Gap to separate the Roman symbols from the Greek
+%
+%$\omega$ & angular frequency & rads$^{-1}$ \\
+%% Symbol & Name & Unit \\
+%}
 
 %----------------------------------------------------------------------------------------
 %	DEDICATION
 %----------------------------------------------------------------------------------------
 
-\setstretch{1.3} % Return the line spacing back to 1.3
-
-\pagestyle{empty} % Page style needs to be empty for this page
-
-\dedicatory{For/Dedicated to/To my\ldots} % Dedication text
-
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+%\setstretch{1.3} % Return the line spacing back to 1.3
+%
+%\pagestyle{empty} % Page style needs to be empty for this page
+%
+%\dedicatory{For/Dedicated to/To my\ldots} % Dedication text
+%
+%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -293,6 +305,6 @@ $\omega$ & angular frequency & rads$^{-1}$ \\
 
 %\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
 \bibliographystyle{apacite}
-\bibliography{Bibliographies/SR_image,Bibliographies/HPC_CS,Bibliographies/SR_video,Bibliographies/HPC_SR,Bibliographies/TV_Standards,Bibliographies/Img_Proc,Bibliographies/Bibliography,Bibliographies/FPGA_ImgProc,Bibliographies/FPGA} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+\bibliography{Bibliographies/SR_image,Bibliographies/HPC_CS,Bibliographies/SR_video,Bibliographies/HPC_SR,Bibliographies/TV_Standards,Bibliographies/Img_Proc,Bibliographies/Bibliography,Bibliographies/FPGA_ImgProc,Bibliographies/FPGA,Bibliographies/HPC_etc} % The references (bibliography) information are stored in the file named "Bibliography.bib"
 
 \end{document}  

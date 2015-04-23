@@ -10,3 +10,37 @@
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
+%-----------------------------------
+%	SUBSECTION 1
+%-----------------------------------
+\subsection{Evaluation of state-of-the-art algorithms}
+The state-of-the-art algorithm will first be evaluated as to its speed and output quality.
+The findings generated will then serve as the baseline for improvement.
+
+%-----------------------------------
+%	SUBSECTION 2
+%-----------------------------------
+
+\subsection{Modifications for speed and quality}
+Successive modifications for speed and output quality will be performed until the improvements are sufficient to guarantee state-of-the-art status.
+Initially, these measurements will be performed in the CPU.
+This process is iterative.
+The criteria are at least +1dB increase in quality and at least 4x speedup.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2
+%----------------------------------------------------------------------------------------
+
+\subsection{FPGA Deployment and Comparative Tests}
+If the criteria are met in the CPU version of the algorithm, the next step is to parallelize using the available FPGA resources.
+A specialized  architecture will be defined
+
+\subsection{Exploiting parallelism for FPGAs}
+
+\section{Data Flow}
+
+\section{Tools to be Used}
+The initial algorithm runs will be performed on a computer with an Intel Core i7 3632QM Processor 2.2 GHz, 16GB RAM, NVIDIA GeForce GT 730M 2GB. 
+The FPGA to be used is the Xilinx Zynq-7000 SoC (embedded CPU+FPGA) on a Digilent Zedboard.
+Using this SoC combines the easy programmability of an embedded CPU with the fine-grained parallelism of an FPGA.
+The software consists of MATLAB 2015a and Xilinx Vivado Design Suite 2014.2.

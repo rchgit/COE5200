@@ -40,7 +40,7 @@
   \if@tempswa \else \PassOptionsToClass{#1}{\baseclass}\fi
 }
 \@checkoptions{11pt}{{10pt}{11pt}{12pt}}
-\PassOptionsToClass{a4paper}{\baseclass}
+\PassOptionsToClass{letterpaper}{\baseclass}
 \ProcessOptions\relax
 \LoadClass{\baseclass}
 \newcommand\bhrule{\typeout{------------------------------------------------------------------------------}}
@@ -74,10 +74,10 @@
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------
-\setmarginsrb  { 1.5in}  % left margin
-                        { 0.6in}  % top margin
+\setmarginsrb  { 1.0in}  % left margin
+                        { 1.0in}  % top margin
                         { 1.0in}  % right margin
-                        { 0.8in}  % bottom margin
+                        { 1.0in}  % bottom margin
                         {  20pt}  % head height
                         {0.25in}  % head sep
                         {   9pt}  % foot height
@@ -181,7 +181,7 @@
 %	defined as \examname above so you cite it as \examname
 %----------------------------------------------------------------------------------------
 
-\thesistitle{High-performance Video Super-resolution through FPGA} % Your thesis title - this is used in the title and abstract
+\thesistitle{High-performance Video Super-resolution using the Zynq-7000 SoC} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------  
 \supervisor{Engr. Carlo \textsc{Ochotorena}} % You supervisor's name - this is used in the title page
 %-------------------------------------------------   

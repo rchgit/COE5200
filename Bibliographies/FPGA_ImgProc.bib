@@ -1,8 +1,62 @@
+@inproceedings{Struyf2014,
+abstract = {This paper focuses on a thorough comparison of the two main hardware targets for real-time optimization of a computer vision algorithm: GPU and FPGA. Based on a complex case study algorithm for threaded isle detection, implementation on both hardware targets is compared in terms of resulting time performance, code translation effort, hardware cost, power efficiency and integrateability. A real-life case study as described in this paper is a very useful addition to discussions on a more theoretical level, going beyond artificial experiments. In our experiments, we show the speed-up gained by porting our algorithm to FPGA using manually written VHDL and to a heterogeneous GPU/CPU architecture with the OpenCL language. Also, issues and problems occurring during the code porting are detailed.},
+address = {Lisbon, Portugal},
+author = {Struyf, Lars and Beugher, Stijn De and Uytsel, Dong Hoon Van and Kanters, Frans and Goedem, Toon},
+booktitle = {International conference on pervasive and embedded computing and communication systems – PECCS 2014},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/International conference on pervasive and embedded computing and communication systems – PECCS 2014/2014\_The battle of the giants a case study of GPU vs FPGA optimisation for real-time image processing.pdf:pdf},
+isbn = {9789897580000},
+keywords = {Computer Vision,FPGA,GPU,Real-Time},
+pages = {112--119},
+publisher = {VISIGRAPP},
+title = {{The battle of the giants : a case study of GPU vs FPGA optimisation for real-time image processing}},
+url = {http://www.peccs.org/?y=2014},
+year = {2014}
+}
+@article{Fowers2012,
+abstract = {With the emergence of accelerator devices such as multicores, graphics-processing units (GPUs), and field-programmable gate arrays (FPGAs), application designers are confronted with the problem of searching a huge design space that has been shown to have widely varying performance and energy metrics for different accelerators, different application domains, and different use cases. To address this problem, numerous studies have evaluated specific applications across different accelerators. In this paper, we analyze an important domain of applications, referred to as sliding-window applications, when executing on FPGAs, GPUs, and multicores. For each device, we present optimization strategies and analyze use cases where each device is most effective. The results show that FPGAs can achieve speedup of up to 11x and 57x compared to GPUs and multicores, respectively, while also using orders of magnitude less energy. Categories},
+author = {Fowers, Jeremy and Brown, Greg and Cooke, Patrick and Stitt, Greg},
+doi = {10.1145/2145694.2145704},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/Proceedings of the ACMSIGDA international symposium on Field Programmable Gate Arrays - FPGA '12/2012\_A performance and energy comparison of FPGAs, GPUs, and multicores for sliding-window applications.pdf:pdf},
+isbn = {9781450311557},
+issn = {15443566},
+journal = {Proceedings of the ACM/SIGDA international symposium on Field Programmable Gate Arrays - FPGA '12},
+keywords = {fpga,gpu,multicore,parallelism,sliding window,speedup},
+pages = {47},
+title = {{A performance and energy comparison of FPGAs, GPUs, and multicores for sliding-window applications}},
+url = {http://dl.acm.org/citation.cfm?doid=2145694.2145704},
+year = {2012}
+}
+@phdthesis{Fykse2013,
+author = {Fykse, Egil},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/Unknown/2013\_Performance Comparison of GPU , DSP and FPGA implementations of image processing and computer vision algorithms in embedded systems.pdf:pdf},
+number = {June},
+title = {{Performance Comparison of GPU , DSP and FPGA implementations of image processing and computer vision algorithms in embedded systems}},
+year = {2013}
+}
+@article{Asano2009,
+abstract = {Many applications in image processing have high inherent parallelism. FPGAs have shown very high performance in spite of their low operational frequency by fully extracting the parallelism. In recent micro processors, it also becomes possible to utilize the parallelism using multi-cores which support improved SIMD instructions, though programmers have to use them explicitly to achieve high performance. Recent GPUs support a large number of cores, and have a potential for high performance in many applications. However, the cores are grouped, and data transfer between the groups is very limited. Programming tools for FPGA, SIMD instructions on CPU and a large number of cores on GPU have been developed, but it is still difficult to achieve high performance on these platforms. In this paper, we compare the performance of FPGA, GPU and CPU using three applications in image processing; two-dimensional filters, stereo-vision and k-means clustering, and make it clear which platform is faster under which conditions.},
+author = {Asano, Shuichi and Maruyama, Tsutomu and Yamaguchi, Yoshiki},
+doi = {10.1109/FPL.2009.5272532},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/FPL 09 19th International Conference on Field Programmable Logic and Applications/2009\_Performance comparison of FPGA, GPU and CPU in image processing.pdf:pdf},
+isbn = {9781424438921},
+issn = {1946-1488},
+journal = {FPL 09: 19th International Conference on Field Programmable Logic and Applications},
+pages = {126--131},
+title = {{Performance comparison of FPGA, GPU and CPU in image processing}},
+year = {2009}
+}
 @book{Gokhale,
 author = {Gokhale, Maya},
 file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/Unknown/Unknown\_Algorithm Acceleration with Reconfigurable Hardware.pdf:pdf},
 isbn = {0387261052},
 title = {{Algorithm Acceleration with Reconfigurable Hardware}}
+}
+@article{North2011,
+author = {North, Palmerston},
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/Unknown/2011\_Implementing Image Processing on FPGAs.pdf:pdf},
+number = {06},
+title = {{Implementing Image Processing on FPGAs}},
+year = {2011}
 }
 @phdthesis{Roth2011,
 abstract = {This thesis describes the use of current day low cost Field Programmable Gate Arrays (FPGAs) for realtime broadcast video processing. Capabilities of selected device family (Altera Cyclone IV) are discussed with regard to video process- ing. Example IP cores (deinterlacer, alpha blender and frame rate converter) are designed in Verilog HDL and the design flow is described. The IP cores are im- plemented in real hardware system. The overall hardware system is described, together with individual FPGA components providing video input/output and other I/O functions.},
@@ -12,12 +66,11 @@ school = {MASARYK UNIVERSITY},
 title = {{Using low cost FPGAs for realtime video processing}},
 year = {2011}
 }
-@article{North2011,
-author = {North, Palmerston},
-file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/Unknown/2011\_Implementing Image Processing on FPGAs.pdf:pdf},
-number = {06},
-title = {{Implementing Image Processing on FPGAs}},
-year = {2011}
+@article{,
+file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/Unknown/2010\_ImageVideo Processing on Xilinx FPGA Tutorial.pdf:pdf},
+pages = {10--13},
+title = {{Image/Video Processing on Xilinx FPGA Tutorial}},
+year = {2010}
 }
 @article{Engineering2008,
 author = {Engineering, Bachelor O F},
@@ -60,10 +113,4 @@ pages = {2135--2137},
 title = {{Fpga Based Hardware Implementation of Advanced Encryption}},
 volume = {3},
 year = {2007}
-}
-@article{,
-file = {:C$\backslash$:/Users/Reich/Documents/Mendeley Desktop/Unknown/2010\_ImageVideo Processing on Xilinx FPGA Tutorial.pdf:pdf},
-pages = {10--13},
-title = {{Image/Video Processing on Xilinx FPGA Tutorial}},
-year = {2010}
 }

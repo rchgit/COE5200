@@ -24,17 +24,19 @@ Super-resolution is necessary in the following fields of interest \citep{Yang201
 \begin{itemize}
 	\item Surveillance video: 
 	\item Satellite imaging:
-	\item Medical imaging:
-	\item Video upscaling:	
+	\item Medical imaging: In \cite{Malczewski2008}, multi-frame SR is accomplished by taking advantage of small spatial shifts in the LR image set.
+	\item Video upscaling: This is the main premise of the present study, as with the rest of the papers cited in this chapter.
 \end{itemize}
 
-\subsection{Measuring image quality}
+\subsection{Image Quality Assessment (IQA)}
+Quantification of quality is a prerequisite in the improvement of the SR algorithm to be developed.
 Currently, there are two primary measures of output image quality in SR, namely, the Peak Signal-to-Noise Ratio (PSNR) and the Structural Similarity Index Measure (SSIM). 
 The choice of PSNR or SSIM is typically arbitrary, with a few informal arguments favoring one or the other \citep{Farsiu2004}.
 To aid in selection of a suitable metric, an analysis of both image metrics is found in \cite{Hore2010}. 
 They state that a mathematical relationship exists between the two metrics, thus making it possible to predict the PSNR from the SSIM and vice-versa. 
 They only differ in their sensitivity to image degradations as introduced by noise, compression, and hardware limitations.
-
+	
+A recent addition to the list of metrics is the FSIM (Feature Similarity Index Measure) \citep{Zhang2011a}.
 
 To the present day, super-resolution remains an active area of research. 
 The following sections present various approaches to SR that rely on several different models.
@@ -62,6 +64,10 @@ Hello
 Hello
 \citep{Yang2010a}
 
+\subsection{Methods Based on Sparse Representations}
+The relative absence of data in the low resolution patches makes it reasonable to consider the LR patch space as a sparse representation of the HR patch space.
+
+\cite{Zeyde2012} proposed an algorithm that uses the Sparseland model previously developed by \cite{Elad2006}.
 \subsection{Dictionary Learning Methods}
 Digital signal data take up too much storage space, but most of this space does not account for the most significant components of the signal it represents.
 Compression and alternative representations are therefore required to reduce storage size while preserving fidelity.
@@ -76,7 +82,7 @@ This matrix can then model any signal as a combination of its columns, better kn
 \subsection{Computational Intelligence Methods}
 So far, the previous methods mentioned all have solid mathematical foundations.
 However, it has been found out (citation here) that a great number of real-world problems cannot be modeled into well-posed mathematical problems, including super-resolution.
-A class of algorithms dubbed "computational intelligence" rely on mimicking natural systems to model and solve such kinds problems.
+A class of algorithms under "computational intelligence" rely on mimicking natural systems to model and solve such kinds of problems.
 
 \cite{Dong2014} used a deep convolutional neural network in order to 
 
@@ -90,37 +96,46 @@ Researchers still struggle with the following challenges, despite years of resea
 \end{itemize}
 \subsection{Image Registration}
 Image registration is the process of mapping two images both spatially and with respect to intensity \citep{Brown1992}. It is a computationally-intensive task \citep{Yang2010a}
-According to (cite here), image registration is required for the following purposes
+%According to (cite here), image registration is required for the following purposes
 \begin{itemize}
 	\item Integrating information taken from different sensors
 	\item finding changes in images taken at different times or under different conditions
 	\item Inferring three dimensional information from images in which either the camera or the objects in the scene have moved
 	\item Model-based object recognition
 \end{itemize}
+
+\subsection{Edge preservation}
+It is typical in SR algorithms to lose details or edges in the output image/video. 
+SR techniques for edge preservation have therefore been proposed. 
+\cite{Vishnukumar2014} uses self-examples.
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
 
 \section{Video super-resolution}
 
-Video super-resolution is the application of super-resolution to moving pictures.
-It can generally be divided into two categories: incremental and simultaneous \citep{Su2011}. The former category is faster but less visually consistent to the human eye.
-\cite{Liu2014} mentions that video SR is relatively more challenging than image SR which has been studied for decades. 
-They also propose a Bayesian video SR system that can simultaneously estimate the motion, blur kernel, and noise level.
+Video super-resolution is the extension of image SR to moving pictures.
+An additional temporal dimension can now be factored in the SR process.
+It can generally be divided into two categories: incremental and simultaneous \citep{Su2011}.
+The former category is faster but less visually consistent to the human eye.
+\cite{Liu2014} mentions that video SR is relatively more challenging than image SR which has been studied for decades, due to the presence of an additional temporal dimension.
+
 
 \subsection{Mathematical Methods}
 
-
+\cite{Liu2014} propose a Bayesian video SR system that can simultaneously estimate the motion, blur kernel, and noise level.
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 
 \subsection{Computational Intelligence Methods}
-
+As in image SR, video SR is a highly nonlinear task and is amenable to processing via computational intelligence. 
+For example, \cite{Cheng2013} constructed an artificial neural network that uses classifiers for video SR.
 
 \section{High Performance Computing Platforms}
-\cite{Yang2010a} suggest that high-performance hardware does matter in tackling super-resolution problems. In (insert citation here), something. 
+\cite{Yang2010a} suggest that high-performance hardware matters in tackling super-resolution problems. 
+Typically, image SR algorithms are first developed for computer CPUs.
 Modern CPUs (central processing units) of computers combine high-frequency processors with a degree of parallelism to add more processing power to algorithms.
 Even so, the CPU is not enough to handle tasks such as SR in real-time.
 There are several steps in the SR process that may be implemented as parallel tasks.
@@ -135,21 +150,51 @@ GPUs (Graphics Processing Units) have been favored in recent years for this task
 \subsection{Manycore Coprocessors}
 This class of parallel processors are based off CPU architectures but have more cores than the traditional CPU and are meant to run at a lower frequency. 
 A host CPU passes the appropriate parallel instructions to the manycore coprocessor and subsequently fetches the results of the computation.
-Manycore processors offer more programmability than GPUs simply by the fact that they share the same architecture as the host CPU \citep{Ishizaka2013}.
+Manycore processors offer more programmability than GPUs simply by the fact that they share the same architecture as the host CPU. 
+The only known product in this category is that of Intel MIC (Many Integrated Core) architecture \citep{Intel2014}.
+
+\cite{Ishizaka2013} demonstrated a power-efficient real-time SR system that uses a virtual pipeline to improve the performance as well as the utilization of both the manycore and the host processors. 
+Their set-up was able to achieve 31.5 fps, satisfying the real-time requirement.
+The problem with their set up is the limited adoption of the MIC platform and the power requirement of about 170 W (check the figures).
+
 
 \subsection{Field Programmable Gate Arrays (FPGAs)}
 FPGAs (Field Programmable Gate Arrays) are logic devices that can be reconfigured by a designer on the field after being manufactured.
 Since at the lowest level, logic circuits are inherently parallel and real-time, FPGAs offer optimization potential that cannot be realized when using instruction-based platforms such as CPUs and GPUs. FPGAs typically run at much lower frequencies than CPUs and GPUs, making them more power efficient.
 Higher-end FPGAs even offer the ability to be partially dynamically reconfigured, so that even while it is running, parts of the FPGA fabric gets their design altered \citep{Dye2012}.
-These factors makes FPGAs suitable for the most computationally-intensive real-time applications.
+These factors makes FPGAs suitable for the most computationally-intensive real-time applications while conserving energy.
+	
+\cite{Sirowy2008} investigated the reasons why an FPGA offers high speedups over instruction-based processors such as CPU, manycore, and GPU. 
+Among these are the removal of an instruction fetch step.
 
-\subsubsection{Design Strategies}
-\cite{Sirowy2008} detailed the reasons why an FPGA offers high speedups over instruction-based processors such as CPU, manycore, and GPU. 
-Among these are the removal of an instruction fetch step, 
+\subsection{Design Considerations and Strategies}
+Since the SR system of this study is to be integrated into other computing systems, it is imperative to develop an embedded system, one which consumes less space on the motherboard and uses less energy.
+The more power used, the more heat is generated. According to \cite{Anderson2003}, failure rates double for every 15 degree Celsius rise in temperature.
+In this light, for an embedded system, the GPU and CPU are not applicable processors.
+\cite{Mittal2014} considered using an "unconventional core" such as an FPGA to realize lower power-consumption in an embedded system.
+\cite{Struyf2014} 
+
+
 
 \subsubsection{Use in super-resolution applications}
-
-\cite{Angelopoulou2009} created a real-time video SR system on an FPGA that is robust against noise. It uses the iterative back projection algorithm. 
+The following papers prove the feasibility of an FPGA in SR applications.
+\cite{Angelopoulou2009} created a real-time video SR system on an FPGA that is robust against noise.
+It uses the iterative back projection algorithm. 
+However, the system depends on an adaptive image sensor 
+\cite{Szydzik2011} constructed a high quality SR system on an FPGA. 
+They were able to achieve 2x upscaling at 25 fps while using only less than 37\% of FPGA resources of the state-of-the-art algorithm at that time.
+\cite{Bowen2008} achieved 3x speedup over equivalent software (CPU) implementations.
 
 \subsubsection{As video processors}
 \cite{Roth2011} used low-cost FPGA hardware to accomplish real-time video processing tasks such as deinterlacing, alpha blending, and frame buffering.
+
+\section{Comparison of CPU, GPU and FPGA}
+
+\cite{Asano2009} compared the performance of the CPU, GPU and FPGA in image processing applications. 
+They noted that CPUs are consistently lagging behind the GPU and FPGA, while the GPU is best for "naive computation methods" in which processing takes place on a per pixel basis.
+
+\cite{Fowers2012} compared the performance and the energy expended by FPGAs, GPUs and multicore CPUs. 
+This paper is significant to the present study since their focus is on sliding-window algorithms, which take the data on a per-block basis instead of per-pixel. This makes computation more efficient.
+
+\section{Zynq-7000 System-on-a-chip}
+
