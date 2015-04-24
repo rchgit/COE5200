@@ -181,7 +181,7 @@
 %	defined as \examname above so you cite it as \examname
 %----------------------------------------------------------------------------------------
 
-\thesistitle{High-performance Video Super-resolution using the Zynq-7000 SoC} % Your thesis title - this is used in the title and abstract
+\thesistitle{High-performance Video Super-resolution using FPGA-CPU Hybrid SoC} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------  
 \supervisor{Engr. Carlo \textsc{Ochotorena}} % You supervisor's name - this is used in the title page
 %-------------------------------------------------   

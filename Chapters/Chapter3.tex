@@ -10,7 +10,7 @@
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-\section{Research Process}
+
 
 %\begin{figure}[htbp]
 %	\centering
@@ -25,22 +25,31 @@
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{Evaluation of state-of-the-art algorithms}
-The m
+\section{Algorithm Framework}
+% Place figure here
+
+% Explain the framework
 
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 
-\subsection{Modifications for speed and quality}
+\section{Hardware Framework}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{Figures/HARDWARE_FRAMEWORK.png}
+	\caption[]{Framework for Hardware Implementation.}
+	\label{fig:hardframe}
+\end{figure}
+
+% Explain the framework
+Figure \ref{fig:hardframe} illustrates the flow of data across the hardware devices to be used in the study.
+A video source such as a camera or prerecorded file will be sent for super-resolution on the SoC, which will then display the result on the monitor in real-time.
+Initially a conventional computer will serve as the development and evaluation  environment for the SR algorithm.
+A revised version of the algorithm can then be sent to the SoC for further testing and fine-tuning.
+
 
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
-
-\subsection{FPGA Deployment and Comparative Tests}
-
-\subsection{Exploiting parallelism for FPGAs}
-
-\section{Data Flow}
