@@ -9,10 +9,14 @@
 %----------------------------------------------------------------------------------------
 
 \section{Background of the Study}
-The search for ever higher screen resolutions led to the advent of ultra high definition television screens and monitors. However, to date, common video sources do not use the full capability of most high-resolution televisions of today.
 
+The search for ever higher screen resolutions led to the advent of ultra high definition television screens and monitors. 
+In the U.S. alone, 80\% of households have at least one high-definition screen \citep{LRG2015}.
+ However, to date, video sources such as terrestrial transmissions here in the Philippines (cite here) do not use the full resolution of modern televisions. %citation needed
+
+To resolve this problem, a class of methods called "super-resolution" are employed.
 Super-resolution is the process of rendering or recovering a larger image or video given some low-resolution source \citep{Dong2014}.
-Super-resolution finds its applications in diverse fields of study. Examples include video surveillance, in \cite{Caner2003} and \cite{Zhang2010},  medical imaging in \cite{Malczewski2008}, and satellite imaging . % cite here
+Super-resolution finds its applications in diverse fields of study. Examples include video surveillance, in \cite{Caner2003} and \cite{Zhang2010},  medical imaging in \cite{Malczewski2008}, and satellite imaging.
 Multi-frame image super-resolution methods use a set of LR images to construct an HR image by exploring the spatial correlations in that set \citep{Cheng2013}.
 This kind of SR is applicable in laboratory settings.
 In other cases, single frame SR is more appropriate. 
@@ -31,14 +35,16 @@ These current solutions also have unstable frame rates \citep{Wu2011}.
 
 We are then confronted by the problem of finding a video super-resolution system that uses a fast algorithm to generate high-quality hi-resolution videos from a low-resolution source while maintaining a relatively small power footprint.
 
-A class of integrated circuits known as FPGAs, which are demonstrated to have high performance-per-watt ratios, is suitable for the constraints specified in this study.
+A new class of integrated circuits known as SoCs (Systems-on-a-chip), combining an FPGA and a CPU, are demonstrated to have high performance-per-watt ratios.
+Thus, they are suitable for the constraints specified in this study.
+%To date, no published paper uses these recently-developed chips for the purpose of video super-resolution.
 
 %----------------------------------------------------------------------------------------
 \section{Objectives of the Study}
 
 \subsection{General Objective}
 
-This study aims to come up with a new video super-resolution algorithm and implement this for use on a hybrid FPGA (field programmable gate array).
+This study aims to come up with a new video super-resolution algorithm and implement this for use on a hybrid FPGA-CPU (Field Programmable Gate Array - Central Processing Unit) chip.
 
 
 \subsection{Specific Objectives}
@@ -46,16 +52,28 @@ This study aims to come up with a new video super-resolution algorithm and imple
 Specifically, the study aims to tackle the following goals:
 
 \begin{enumerate}
-	\item To improve on the state-of-the-art video super-resolution algorithm in terms of PSNR (peak signal-to-noise ratio) and running time. 
-	\item To profile the video super-resolution algorithm to determine performance bottlenecks.
-	\item To exploit parallelizable steps in the algorithm to further enhance suitability on an FPGA.
+	\item To develop a novel video super-resolution algorithm in terms of PSNR (peak signal-to-noise ratio) and running time. 
+	\item To investigate and determine the performance bottlenecks in the developed video super-resolution algorithm.
+	\item To investigate the parallelism potential in the algorithm to enhance suitability on the FPGA-CPU hybrid.
 \end{enumerate}
 
 %----------------------------------------------------------------------------------------
+\section{Significance of the Study}
+The study would contribute to the growing number of literature regarding video SR. 	
+It is known that the study of video super-resolution remains in its infancy.
+High quality and high speed remain difficult to obtain despite the numerous advances in super-resolution through the years.
+The results would help in the improvement of picture quality of low-resolution videos on high-resolution monitors (HD, QHD, UHD).
+%However, the results of the study is not limited to video upscaling. 
+%In fact, it may be extended to other applications such as in surveillance.
+
 
 \section{Scope and Limitations of the Study}
 
 Since previous studies (cited in Review of Related Literature) have shown that clear upscaling is practical only at a factor of 4, it has been decided that this study should concern itself with 4x upscaling only.
+
+Two software packages will be used: MATLAB 2015a and Xilinx Vivado Suite 2014.2.
+The former is an algorithm prototyping environment, while the latter is an HDL (Hardware Description Lanuguage) development environment.
+
 
 
 %\subsection{Using US Letter Paper}

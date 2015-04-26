@@ -9,6 +9,13 @@
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
+\section{Image and Video Resolutions}
+Every image and video frame is composed of picture elements, or "pixels"
+The HD (High Definition) resolution is 1920x1080 pixels in size
+
+\section{Image and Video Processing}
+Image processing is
+
 \section{Image Quality Assessment (IQA)}
 Quantification of quality is a prerequisite in the development of any image or video processing algorithm.
 Currently, there are two primary measures of output image quality, namely, the Peak Signal-to-Noise Ratio (PSNR) and the Structural Similarity Index Measure (SSIM). 
@@ -41,7 +48,7 @@ Image upscaling for information technology and entertainment is one application 
 Super-resolution is necessary in the following fields of interest:
 \begin{enumerate}
 	\item Surveillance video: In \cite{Camargo2010}, an SR mosaicking algorithm that stitches and super-resolves UAV (Unmanned Aerial Vehicle) video was implemented on a GPU-CPU pair. They were able to reach as high a PSNR as 41.10 dB for synthetic images. Their application is not real-time, however.
-	\item Satellite imaging: 
+%	\item Satellite imaging: 
 	\item Medical imaging: 
 %	In \cite{Malczewski2008}, multi-frame SR is accomplished by taking advantage of small spatial shifts in the LR image set.
 	\cite{Quan2010} proposed a real-time algorithm that uses localization-based SR, the superior type of SR microscopy for live cell imaging. The algorithm can achieve between 30-500 fps (frames per second) depending on the speed of the camera used.
@@ -64,35 +71,41 @@ The image observation model, as adopted by common imaging systems, is shown in F
 	\label{fig:IOM}
 \end{figure}
 
-\subsection{Frequency Domain}
+\subsection{Frequency Domain and the Nyquist Theorem}
 The first SR paper as authored by \cite{tsai1984multiframe} describes the SR process in the frequency domain. 
 Their algorithm takes advantage of the shift and aliasing properties of the continuous and discrete Fourier transforms, given a set of multiple shifted low resolution images. 
-A few extensions have been proposed, such as 
-\citep{Yang2010a}
+The main problem is that the typical output of SR methods that depend on Fourier transforms is non-satisfactory for Human Vision Systems.
+Ultimately, frequency domain methods have been largely superseded by algorithms which take spatial features into account \citep{Yang2010a}.
 
-\subsection{Methods Based on Sparse Representations}
-The relative absence of data in the low resolution patches makes it reasonable to consider the LR patch space as a sparse representation of the HR patch space.
+Those frequency domain methods primarily rely on the Nyquist theorem \citep{Nyquist1928}.
+
+\subsection{Sparse Representation Methods}
+
+Digital signal data take up too much storage space, but most of this space does not account for the most significant components of the signal it represents.
+Compression and alternative representations are therefore required to reduce storage size while preserving fidelity. 
+
+A recently-found field of study in signal processing, called compressive sensing \cite{Baraniuk2011}, is posed as a new framework for processing signals.
+	
+Dictionary learning is the process of training a set of mutually orthogonal basis vectors in order to create a dictionary matrix. 
+This matrix can then model any signal as a combination of its columns, better known as "atoms" \citep{Kreutz-Delgado2003}. The goal of using dictionary learning in SR is to find a consistent sparse representation of both the LR and HR patches by training an LR and an HR dictionary. 
+This is also known as the sparse-coding process.
+%The relative absence of data in the low resolution patches makes it reasonable to consider the LR patch space as a sparse representation of the HR patch space.
 
 \cite{Zeyde2012} proposed an algorithm that uses the Sparseland model previously developed by \cite{Elad2006}.
 
-\subsection{Dictionary Learning Methods}
-Digital signal data take up too much storage space, but most of this space does not account for the most significant components of the signal it represents.
-Compression and alternative representations are therefore required to reduce storage size while preserving fidelity.
-
-Dictionary learning is the process of training a set of mutually orthogonal basis vectors in order to create a dictionary matrix. 
-This matrix can then model any signal as a combination of its columns, better known as "atoms" \citep{Kreutz-Delgado2003}.
-
 \cite{Wright2010} jointly trained a dictionary for low resolution and another for high resolution patches to enforce sparse representation similarity for both patch spaces. Their approach is also robust to noise, as it uses local sparse modeling.
-\cite{Yang2012} similarly stressed the importance of learning two coupled dictionaries (observation dictionary and latent dictionary). However, the difference in their methods is that they used a coupled dictionary learning method for single-image SR. 	
+\cite{Yang2012} similarly stressed the importance of learning two coupled dictionaries (observation dictionary and latent dictionary). However, the difference in their methods is that they used one coupled dictionary learning method for single-image SR. 	
 
 
 \subsection{Computational Intelligence Methods}
 So far, the previous methods mentioned all have solid mathematical foundations.
-However, it has been found out (citation here) that a great number of real-world problems cannot be modeled into well-posed mathematical problems, including super-resolution.
+However, it has been found out that a great number of real-world problems cannot be modeled into well-posed mathematical problems, including super-resolution.
 A class of algorithms under "computational intelligence" rely on mimicking natural systems to model and solve such kinds of problems.
 
 \cite{Dong2014} used a deep convolutional neural network in order to learn a mapping between the LR and HR spaces. 
 There are three stages involved: patch extraction and representation, non-linear mapping, and reconstruction.
+Their method is similar to sparse-coding
+
 
 
 \section{Challenges in Image SR}
@@ -111,7 +124,7 @@ All of the so-called "real-time SR algorithms" can only handle simple motion mod
 
 \subsection{Robustness}
 SR algorithms are typically sensitive to signal outliers resulting from motion, blur, noise, etc. 
-As the image degradation model parameters are difficult to estimate, researchers nowadays take into account the robustness of their approach \citep{Yang2010a}
+As the image degradation model parameters are difficult to estimate, researchers nowadays take into account the robustness of their approach \citep{Yang2010a}.
 
 \subsection{Edge preservation}
 It is typical in SR algorithms to lose details or edges in the output image/video. 
@@ -145,8 +158,6 @@ As in image SR, video SR is a highly nonlinear task and is amenable to processin
 For example, \cite{Cheng2013} constructed an artificial neural network (ANN) for video SR.
 It is a four-stage algorithm, consisting of classifiers to categorize the image, motion-trace volume collection for pixel tracking, temporal adjustment for fast motions and complicated scenes, and ANN learning.
 
-
-
 \section{High Performance Computing Platforms}
 \cite{Yang2010a} suggest that high-performance hardware matters in tackling super-resolution problems. 
 Typically, image SR algorithms are first developed for computer CPUs.
@@ -156,8 +167,12 @@ There are several steps in the SR process that may be implemented as parallel ta
 Following are the discussions on GPUs, manycore coprocessors, and FPGAs, three parallel platforms commonly in use today.
 
 \subsection{Graphics Processing Units}
-
 GPUs (Graphics Processing Units) have been favored in recent years for this task, as it offers high amounts of parallelism (due to its multiple cores) and compatibility with existing computer systems and programming paradigms.
+The two major discrete GPU vendors, NVIDIA and AMD, provide specialized tools to offload massively parallel tasks, a process known as GPGPU (General-Purpose computing on GPU).
+
+GPUs are classified as stream processors, because their architecture makes use of a minimal kernel program that processes all data input (the stream). 
+This enables GPUs to process a large amount of data in parallel. 
+
 \cite{Wu2011} claims 6x speedup against the same algorithm implemented on a CPU. 
 %\cite{Shen2014} used a real-time learning-based SR algorithm based on error feedback. 
 
@@ -197,7 +212,21 @@ They noted that CPUs are consistently lagging behind the GPU and FPGA, while the
 \cite{Fowers2012} compared the performance and the energy expended by FPGAs, GPUs and multicore CPUs. 
 This paper is significant to the present study since their focus is on sliding-window algorithms, which take the data on a per-block basis instead of per-pixel. This makes computation more efficient.
 
-\subsubsection{Use in super-resolution applications}
+Figure \ref{fig:CPUvsFPGA} illustrates the difference between a sequential processor (CPU) and the FPGA. 
+In the CPU, both data and instructions are being fetched from memory. 
+These instructions are then interpreted into functions to be able to process the data input.
+Then the intermediate results are then stored in the same memory.
+On the other hand, the FPGA does not have any instruction to fetch from memory, since all the functions are already defined as hard-wired circuitry. 
+At the same time, the FPGA can have as many parallel functions as possible, and that data may be pushed into the next function stage in just one clock tick.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.5]{Figures/CPUvsFPGA.png}
+	\label{fig:CPUvsFPGA}
+	\caption[]{Comparison of CPU and FPGA working pipelines \citep{Flynn2012}.}
+\end{figure}
+
+\subsection{Use in super-resolution applications}
 The following papers prove the feasibility of an FPGA in SR applications.
 \cite{Angelopoulou2009} created a real-time video SR system on an FPGA that is robust against noise.
 It uses the iterative back projection algorithm. 
@@ -209,8 +238,9 @@ They were able to achieve 2x upscaling at 25 fps while using only less than 37\%
 %\subsubsection{As video processors}
 %\cite{Roth2011} used low-cost FPGA hardware to accomplish real-time video processing tasks such as deinterlacing, alpha blending, and frame buffering.
 
-\section{Zynq-7000 System-on-a-chip}
-The Zynq-7000 programmable System-on-a-Chip is the first-of-its-kind FPGA-CPU hybrid in the market.
+\section{FPGA-CPU System-on-a-chip}
+
+The Zynq-7000 programmable System-on-a-Chip is the first-of-its-kind FPGA-CPU hybrid available market.
 It combines the high-performance, low-power ARM Cortex A9 CPU, high-end computer components such as DDR3 RAM, and a programmable logic fabric similar to that of an FPGA.
 One advantage of using this SoC is that several peripherals are already built-in and hardwired, eliminating the need for soft IP cores for common devices.
 Another is that of faster sequential processing. 

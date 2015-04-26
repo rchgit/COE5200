@@ -50,7 +50,7 @@
 \addtotoc{Declaration of Authorship}
 \thispagestyle{plain}
 \null\vfil
-%\vskip 60\p@
+% 60\p@
 \begin{center}{\huge\bf Declaration of Authorship\par}\end{center}
 %\vskip 60\p@
 {\normalsize #1}
@@ -64,11 +64,11 @@
   July\or August\or September\or October\or November\or December\fi
   \space \number\year}
 \usepackage{setspace}
-\onehalfspacing
+%\onehalfspacing
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2.0ex plus0.5ex minus0.2ex}
 \usepackage{vmargin}
-
+\setpapersize{USletter}
 \RequirePackage[utf8]{inputenc} % Allows the use of international characters (e.g. Umlauts)
 
 %----------------------------------------------------------------------------------------
@@ -78,26 +78,28 @@
                         { 1.0in}  % top margin
                         { 1.0in}  % right margin
                         { 1.0in}  % bottom margin
-                        {  20pt}  % head height
+                        {  9pt}  % head height
                         {0.25in}  % head sep
                         {   9pt}  % foot height
                         { 0.3in}  % foot sep
 %----------------------------------------------------------------------------------------
 \raggedbottom
-\setlength{\topskip}{1\topskip \@plus 5\p@}
+%\setlength{\topskip}{1\topskip \@plus 5\p@}
+\setlength{\topskip}{1pt}
 \doublehyphendemerits=10000       % No consecutive line hyphens.
 \brokenpenalty=10000              % No broken words across columns/pages.
 \widowpenalty=9999                % Almost no widows at bottom of page.
 \clubpenalty=9999                 % Almost no orphans at top of page.
 \interfootnotelinepenalty=9999    % Almost never break footnotes.
 \usepackage{fancyhdr}
-\lhead[\rm\thepage]{\fancyplain{}{\sl{\rightmark}}}
-\rhead[\fancyplain{}{\sl{\leftmark}}]{\rm\thepage}
-\chead{}\lfoot{}\rfoot{}\cfoot{}
+%\lhead[\rm\thepage]{\fancyplain{}{\sl{\rightmark}}}
+%\rhead[\fancyplain{}{\sl{\leftmark}}]{\rm\thepage}
+\lhead{}\rhead{}\chead{}\lfoot{}\rfoot{}\cfoot{}
 \pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\btypeout{\thechapter\space #1}\markboth{\@chapapp\ \thechapter\ #1}{\@chapapp\ \thechapter\ #1}}
+%\renewcommand{\chaptermark}[1]{\btypeout{\thechapter\space #1}\markboth{\@chapapp\ \thechapter\ #1}{\@chapapp\ \thechapter\ #1}}
 \renewcommand{\sectionmark}[1]{}
 \renewcommand{\subsectionmark}[1]{}
+\renewcommand{\contentsname}{Table of Contents}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
 \hbox{}
 \thispagestyle{empty}
@@ -153,6 +155,7 @@
    bookmarksopenlevel=0,bookmarksnumbered=true,hypertexnames=false,
    colorlinks,linkcolor={blue},citecolor={blue},urlcolor={red},
    pdfstartview={FitV},unicode,breaklinks=true]{hyperref}
+
 \pdfstringdefDisableCommands{
    \let\\\space
 }
@@ -181,15 +184,16 @@
 %	defined as \examname above so you cite it as \examname
 %----------------------------------------------------------------------------------------
 
-\thesistitle{High-performance Video Super-resolution using FPGA-CPU Hybrid SoC} % Your thesis title - this is used in the title and abstract
+\thesistitle{Development of a High-performance Video Super-resolution Platform\\
+	 using FPGA-CPU Hybrid SoC} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------  
-\supervisor{Engr. Carlo \textsc{Ochotorena}} % You supervisor's name - this is used in the title page
+\supervisor{Engr. Carlo Ochotorena} % You supervisor's name - this is used in the title page
 %-------------------------------------------------   
 \examiner{} % Your examiner's name - this is not currently used anywhere in the template, cite it with \examname if you want it
 %-------------------------------------------------   
 \degree{Master of Science} % Your degree name - this is currently used in the title page and abstract
 %-------------------------------------------------   
-\authors{Reich \textsc{Canlas}} % Your name - this is used in the title page and abstract
+\authors{Canlas, Reich Rechner D.} % Your name - this is used in the title page and abstract
 %-------------------------------------------------   
 \addresses{} % Your address - this is not currently used anywhere in the template, cite it with \addressnames if you want it
 %-------------------------------------------------   
@@ -247,25 +251,25 @@
     \vskip 60\p@
     \begin{center}
       \setlength{\parskip}{0pt}
-      {\large\textbf{\UNIVNAME}\par}
+      {\textbf{\UNIVNAME}\par}
       \vfill
-      {\huge \bf \@title \par}
+      {\bf \@title \par}
       \vfill
-      {\LARGE by \par}
+      {by \par}
       \smallskip
-      {\LARGE \authornames \par}
+      {\authornames \par}
       \vfill
-      {\large A thesis submitted in partial fulfillment for the \par}
-      {\large degree of \degreename \par}
+      {A thesis submitted in partial fulfillment for the \par}
+      {degree of \degreename \par}
       \bigskip
       \bigskip
-      {\large in the \par}
-      {\large \facname \par}
-      {\large \deptname \par} 
+      {in the \par}
+      {\facname \par}
+      {\deptname \par} 
       \bigskip
       \bigskip
       \bigskip
-      {\Large \@date \par}
+      {\@date \par}
       \bigskip
     \end{center}
     \par
@@ -295,18 +299,18 @@
   \null\vfil
   \begin{center}
     \setlength{\parskip}{0pt}
-    {\normalsize \UNIVNAME \par} % University name in capitals
-    \bigskip
-    {\huge{\textit{Abstract}} \par}
-    \bigskip
-    {\normalsize \facname \par} % Faculty name
-    {\normalsize \deptname \par} % Department name
-    \bigskip
-    {\normalsize \degreename\par} % Degree name
-    \bigskip
-    {\normalsize\bf \@title \par} % Thesis title
-    \medskip
-    {\normalsize by \authornames \par} % Author name
+%    {\normalsize \UNIVNAME \par} % University name in capitals
+%    \bigskip
+    {\bfseries Abstract \par}
+%    \bigskip
+%    {\normalsize \facname \par} % Faculty name
+%    {\normalsize \deptname \par} % Department name
+%    \bigskip
+%    {\normalsize \degreename\par} % Degree name
+%    \bigskip
+%    {\normalsize\bf \@title \par} % Thesis title
+%    \medskip
+%    {\normalsize by \authornames \par} % Author name
     \bigskip
   \end{center}
 }
@@ -323,7 +327,7 @@
 \addcontentsline{toc}{chapter}{#1}}
 \renewcommand\tableofcontents{
 \btypeout{Table of Contents}
-\addtotoc{Contents}
+\addtotoc{\contentsname}
 \begin{spacing}{1}{
     \setlength{\parskip}{1pt}
     \if@twocolumn

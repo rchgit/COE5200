@@ -12,63 +12,23 @@
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-%-----------------------------------
-%	SUBSECTION 1
-%-----------------------------------
-\section{Benchmarking of state-of-the-art algorithms}
 
-The metrics to be tested are the execution time, the PSNR, SSIM, and FSIM.
-
-Given a reference image \textit{a} and a test image \textit{b}, both of the same size \textit{M}x\textit{N},the PSNR is computed using the following equation \citep{Hore2010}:
-
-\begin{equation}
-PSNR(a,b) = 20 \log_{10}\frac{255}{\sqrt{MSE(a,b)}}
-\end{equation}
-
-where
-\begin{equation}
-MSE(a,b) = \frac{1}{MN} \sum\limits_{i=1}^{M} \sum\limits_{j=1}^{N} (a_{ij}-b_{ij})^2
-\end{equation}
-
-The SSIM is computed using the following equation \citep{Hore2010}:
-
-\begin{equation}
-SSIM(a,b) = l(a,b) c(a,b) s(a,b)
-\end{equation}
-
-where
-\begin{eqnarray}
-l(a,b) = \frac{2\mu_a\mu_b+C_1}{\mu_a^2+\mu_b^2+C_1} \label{eqn:luminance_ssim}\\
-c(a,b) = \frac{2\sigma_a\sigma_b+C_2}{\sigma_a^2+\sigma_b^2+C_2}\label{eqn:contrast_ssim}\\
-s(a,b) = \frac{\sigma_{ab}+C_3}{\sigma_a\sigma_b+C_3}\label{eqn:structure_ssim}
-\end{eqnarray}
-
-Equation \ref{eqn:luminance_ssim} measures the similarity in luminance and is equal to 1 only if $\mu_a=\mu_b$.
-Similarly, equation \ref{eqn:contrast_ssim} compares the standard deviation of the two images (which corresponds to the contrast). 
-It will only equal to 1 if $\sigma_a=\sigma_b$.
-The structure comparison equation (\ref{eqn:structure_ssim}) measures the correlation between the images using the covariance $\sigma_{ab}$ between them.
-
-The FSIM is computed using the following equation \citep{Zhang2011a}:
-
-\begin{equation}
-\frac{\sum_{x\in\Omega}S_L(\mathbf{x})\cdot PC_m(\mathbf{x})}{{\sum_{x\in\Omega}PC_m(\mathbf{x})}}
-\end{equation}
-
-where $\Omega$ is the whole spatial image domain.
-$S_L(\mathbf{x})$
 %-----------------------------------
 %	SUBSECTION 2
 %-----------------------------------
 
 \section{Initial CPU Evaluation}
 % To exploit parallelizable steps in the algorithm to further enhance suitability on an FPGA
+
 Successive modifications for speed and output quality will be performed until the improvements meet the target +0.1dB increase in quality and 4x speedup.
-Initially, these measurements will be performed in the CPU.
+Initially, these measurements will be performed in the CPU using MATLAB functions that measure the PSNR, SSIM, and FSIM.
 
 The initial algorithm runs will take place on a computer with an Intel Core i7 3632QM Processor 2.2 GHz, 16GB RAM, and NVIDIA GeForce GT 730M 2GB. 
 Profiling the algorithm for bottlenecks will be done with the assistance of MATLAB 2015a Profiler. 
 This software package can determine the slowest segments of the algorithm and suggest necessary modifications.
 MATLAB will also used to code the algorithms and will assist in the preliminary conversion into a form suitable for the Zynq through its Vision HDL Toolbox.
+
+The rationale behind coding a CPU version of the algorithm is to be able to determine which steps in the algorithm have parallelization potential, while the remaining sequential steps could be easily ported over to the CPU segment of the target SoC.
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
