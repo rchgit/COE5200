@@ -9,12 +9,18 @@
 %----------------------------------------------------------------------------------------
 
 \section{Background of the Study}
-
+In the digital world, everything is quantized: there are no steps in between digital values, unlike analog.
+To approximate analog signals, chips called ADCs (analog-to-digital converters) are employed. 
+The fidelity of the output signal of these chips is based on its \textit{resolution}. 
+A low-resolution output would mean lower fidelity, but less potential data storage used.
+The only way to increase resolution is by increasing the capabilities of hardware. 
+In just a few decades, digital images and videos that started as just a small set of pixels (picture elements) has grown into thousands or millions of pixels.
+Although today's monitor resolutions have become satisfactory for the human eye, development remains incessant.
 The search for ever higher screen resolutions led to the advent of ultra high definition television screens and monitors. 
 In the U.S. alone, 80\% of households have at least one high-definition screen \citep{LRG2015}.
- However, to date, video sources such as terrestrial transmissions here in the Philippines (cite here) do not use the full resolution of modern televisions. %citation needed
+However, to date, video sources such as terrestrial transmissions here in the Philippines (cite here) do not use the full resolution of modern televisions. %citation needed
 
-To resolve this problem, a class of methods called "super-resolution" are employed.
+To solve this problem, a class of methods called "super-resolution" are employed.
 Super-resolution is the process of rendering or recovering a larger image or video given some low-resolution source \citep{Dong2014}.
 Super-resolution finds its applications in diverse fields of study. Examples include video surveillance, in \cite{Caner2003} and \cite{Zhang2010},  medical imaging in \cite{Malczewski2008}, and satellite imaging.
 Multi-frame image super-resolution methods use a set of LR images to construct an HR image by exploring the spatial correlations in that set \citep{Cheng2013}.
@@ -35,7 +41,7 @@ These current solutions also have unstable frame rates \citep{Wu2011}.
 
 We are then confronted by the problem of finding a video super-resolution system that uses a fast algorithm to generate high-quality hi-resolution videos from a low-resolution source while maintaining a relatively small power footprint.
 
-A new class of integrated circuits known as SoCs (Systems-on-a-chip), combining an FPGA and a CPU, are demonstrated to have high performance-per-watt ratios.
+A new class of integrated circuits known as SoCs (Systems-on-a-chip), combining an FPGA and a CPU, are demonstrated to have high performance-per-watt ratios. % citation needed
 Thus, they are suitable for the constraints specified in this study.
 %To date, no published paper uses these recently-developed chips for the purpose of video super-resolution.
 
@@ -52,17 +58,21 @@ This study aims to come up with a new video super-resolution algorithm and imple
 Specifically, the study aims to tackle the following goals:
 
 \begin{enumerate}
-	\item To develop a novel video super-resolution algorithm in terms of PSNR (peak signal-to-noise ratio) and running time. 
+
+	\item To develop a novel real-time video super-resolution algorithm that is capable of at least a +0.1 dB increase in peak signal-to-noise ratio as against other recent algorithms. 
+	\item To develop programs to assess the quality of the output of the proposed algorithm and the speed in which it was processed.
 	\item To investigate and determine the performance bottlenecks in the developed video super-resolution algorithm.
 	\item To investigate the parallelism potential in the algorithm to enhance suitability on the FPGA-CPU hybrid.
+	\item To test and validate the FPGA-CPU version of the algorithm and compare its performance with the CPU-only implementation.
+	\item To measure and compare the power consumed by the running algorithm on both the CPU and the FPGA-CPU hybrid.
 \end{enumerate}
 
 %----------------------------------------------------------------------------------------
 \section{Significance of the Study}
-The study would contribute to the growing number of literature regarding video SR. 	
 It is known that the study of video super-resolution remains in its infancy.
 High quality and high speed remain difficult to obtain despite the numerous advances in super-resolution through the years.
-The results would help in the improvement of picture quality of low-resolution videos on high-resolution monitors (HD, QHD, UHD).
+Therefore, the study would contribute to the growing number of literature regarding video SR. 	
+The results would help in the improvement of picture quality of low-resolution videos on high-resolution monitors (high-definition [1920x1080], quad high-definition [960x540], ultra high-definition[3840x2160]).
 %However, the results of the study is not limited to video upscaling. 
 %In fact, it may be extended to other applications such as in surveillance.
 
@@ -70,29 +80,9 @@ The results would help in the improvement of picture quality of low-resolution v
 \section{Scope and Limitations of the Study}
 
 Since previous studies (cited in Review of Related Literature) have shown that clear upscaling is practical only at a factor of 4, it has been decided that this study should concern itself with 4x upscaling only.
+Furthermore, the maximum target resolution for this study is 1080p (1920x1080 pixels). 
+This is because the hardware interface involved (High Definition Multimedia Interface) only supports up to that resolution.
 
 Two software packages will be used: MATLAB 2015a and Xilinx Vivado Suite 2014.2.
-The former is an algorithm prototyping environment, while the latter is an HDL (Hardware Description Lanuguage) development environment.
-
-
-
-%\subsection{Using US Letter Paper}
-%
-%The paper size used in the template is A4, which is a common -- if not standard -- size in Europe. If you are using this thesis template elsewhere and particularly in the United States, then you may have to change the A4 paper size to the US Letter size. Unfortunately, this is not as simple as replacing instances of `\texttt{a4paper}' with `\texttt{letterpaper}'.
-%
-%This is because the final PDF file is created directly from the \LaTeX{} source using a program called `\texttt{pdfTeX}' and in certain conditions, paper size commands are ignored and all documents are created with the paper size set to the size stated in the configuration file for pdfTeX (called `\texttt{pdftex.cfg}').
-%
-%What needs to be done is to change the paper size in the configuration file for \texttt{pdfTeX} to reflect the letter size. There is an excellent tutorial on how to do this here: \\
-%\href{http://www.physics.wm.edu/~norman/latexhints/pdf_papersize.html}{\texttt{http://www.physics.wm.edu/$\sim$norman/latexhints/pdf\_papersize.html}}
-%
-%It may be sufficient just to replace the dimensions of the A4 paper size with the US Letter size in the \texttt{pdftex.cfg} file. Due to the differences in the paper size, the resulting margins may be different to what you like or require (as it is common for Institutions to dictate certain margin sizes). If this is the case, then the margin sizes can be tweaked by opening up the \texttt{Thesis.cls} file and searching for the line beginning with, `$\backslash$\texttt{setmarginsrb}' (not very far down from the top), there you will see the margins specified. Simply change those values to what you need (or what looks good) and save. Now your document should be set up for US Letter paper size with suitable margins.
-
-%\subsection{References}
-
-%The `\texttt{natbib}' package is used to format the bibliography and inserts references such as this one \citep{Reference3}. The options used in the `\texttt{Thesis.tex}' file mean that the references are listed in numerical order as they appear in the text. Multiple references are rearranged in numerical order (e.g. \citep{Reference2, Reference1}) and multiple, sequential references become reformatted to a reference range (e.g. \citep{Reference2, Reference1, Reference3}). This is done automatically for you. To see how you use references, have a look at the `\texttt{Chapter1.tex}' source file. Many reference managers allow you to simply drag the reference into the document as you type.
-%
-%Scientific references should come \emph{before} the punctuation mark if there is one (such as a comma or period). The same goes for footnotes\footnote{Such as this footnote, here down at the bottom of the page.}. You can change this but the most important thing is to keep the convention consistent throughout the thesis. Footnotes themselves should be full, descriptive sentences (beginning with a capital letter and ending with a full stop).
-%
-%To see how \LaTeX{} typesets the bibliography, have a look at the very end of this document (or just click on the reference number links).
-
+The former is an algorithm prototyping environment and code performance profiler, while the latter is an HDL (Hardware Description Lanuguage) development environment.
 

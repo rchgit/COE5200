@@ -34,7 +34,6 @@
 %\usepackage[opacity=1,scale=1,position={4.2in,-5.6in}]{background}
 \usepackage[texcoord]{eso-pic}
 \usepackage{titlesec}
-
 \titleformat{\chapter}[block]
 {\normalsize\bfseries}{\thechapter.}{10pt}{\normalsize}
 \titlespacing*{\chapter}{0pt}{0pt}{0pt}
@@ -47,6 +46,9 @@
 {\normalsize\bfseries}{\thesubsection}{10pt}{\normalsize}
 \titlespacing*{\subsection}{0pt}{0pt}{0pt}
 
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+
+%\usepackage{todonotes}
 \usepackage[natbibapa,unnumberedbib]{apacite} % APA Reference Style
 \usepackage{pgfgantt} % For gantt chart
 \hypersetup{urlcolor=black, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
@@ -161,6 +163,9 @@
 %	Your institution may give you a different text to place here
 %----------------------------------------------------------------------------------------
 
+% Comment the following 2 lines after finishing the thesis
+%\listoftodos
+%\clearpage
 %\Declaration{
 %
 %\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
@@ -210,11 +215,14 @@
 \addtotoc{Abstract} % Add the "Abstract" page entry to the Contents
 
 \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
-
-Video super-resolution is the process of reconstructing a high-resolution frame sequence from a low-resolution frame sequence. 
-This problem is ill-posed in nature, that several algorithms have been proposed through the years to increase the quality of the high-resolution output. 
-There are applications which have real-time constraints, such as video stream upscaling and surveillance, therefore, they require high-performance hardware for the super-resolution process.
-This study aims to design and implement a real-time video super-resolution system that uses the Xilinx Zynq-7000 for a relatively low-cost and low-power yet high-performance super-resolution platform.
+It is known that numerous video sources today, such as those recorded by low-resolution devices, have resolutions below that of the monitors that display them.
+It is possible to display those videos on high-resolution monitors, however, na\"\i vely resizing the pixels would cause degradation in display quality, hence the need for methods called super-resolution.
+Video super-resolution is the process of reconstructing a high-resolution frame sequence from a low-resolution frame sequence while minimizing loss of quality. 
+The data for super-resolving signals is always inadequate, therefore, this problem is ill-posed in nature. 
+Several algorithms have been proposed in the literature to increase the quality of the high-resolution output, but none of them can perfectly reconstruct a high-resolution frame from a low-resolution frame.
+The super-resolution process itself is expensive in terms of computational power.
+Worse, there are applications which have real-time constraints, such as video stream upscaling and surveillance, therefore, they require high-performance hardware to meet the time and quality constraints.
+This study aims to design and implement a real-time video super-resolution system that uses the Xilinx Zynq-7000 hybrid FPGA-CPU System on a Chip for a relatively low-cost and low-power yet high-performance super-resolution platform.
 }
 
 \clearpage % Start a new page

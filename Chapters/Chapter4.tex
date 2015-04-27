@@ -28,7 +28,8 @@ Profiling the algorithm for bottlenecks will be done with the assistance of MATL
 This software package can determine the slowest segments of the algorithm and suggest necessary modifications.
 MATLAB will also used to code the algorithms and will assist in the preliminary conversion into a form suitable for the Zynq through its Vision HDL Toolbox.
 
-The rationale behind coding a CPU version of the algorithm is to be able to determine which steps in the algorithm have parallelization potential, while the remaining sequential steps could be easily ported over to the CPU segment of the target SoC.
+The rationale behind coding a CPU version of the algorithm is to be able to determine which steps in the algorithm have parallelization potential and have the chance to be offloaded into the FPGA segment. 
+The remaining sequential steps will be ported over to the CPU segment of the target SoC.
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
@@ -40,6 +41,8 @@ The hybrid FPGA and low-power CPU chip enables the dual advantage of quick seque
 The Xilinx Vivado Design Suite 2014.2 software will facilitate the process of converting the CPU-based algorithm to parallel.
 In addition, Vivado will be used to fine-tune the algorithm and optimize resource usage in the hardware.
 
+\section{Power Consumption Test}
+Both the CPU and the FPGA-CPU setups will be tested for average power consumption during runtime. A wattmeter found in the electrical laboratories of DLSU will be used to accomplish these tests.
 
 
 
